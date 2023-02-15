@@ -10,9 +10,12 @@ const router = express.Router();
 
 // --------- GET ROUTES --------- // 
 
+// GET /users/get-user-by-id
+router.get('/get-user-by-id/:userId', userController.getUserById);
+
 // --------- POST ROUTES --------- // 
 
-// /users/post
+// POST /users/post
 router.post(
     '/post',
     body('email').isEmail(), // validates email

@@ -1,4 +1,5 @@
 // external modules
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -20,4 +21,8 @@ app.use((req, res, next) => {
 
 app.use('/users', userRoutes);
 
-app.listen(8080);   
+mongoose.connect(process.env.DB_CONNECTION_STRING)
+.then(result => {
+    app.listen(8080);
+})
+.catch(err => console.log(err));
