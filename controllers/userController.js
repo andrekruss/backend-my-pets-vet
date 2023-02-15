@@ -63,3 +63,16 @@ exports.postUser = async (req, res, next) => {
     }
 };
 
+// --------- DELETE ROUTES --------- // 
+exports.deleteUser = async (req, res, next) => {
+
+    try{
+        const userId = req.params.userId;
+        const deletedUser = await User.deleteOne({_id: userId});
+        res.status(200).json(deletedUser);
+    }
+    catch (error){
+        console.log(error);
+        res.status(400).json(error);
+    }
+};

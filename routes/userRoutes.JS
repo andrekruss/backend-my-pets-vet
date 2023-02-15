@@ -26,4 +26,7 @@ router.post(
 
 // --------- DELETE ROUTES --------- // 
 
+// DELETE /users/delete
+router.delete('/delete/:userId', userController.deleteUser);
+
 module.exports = router;
